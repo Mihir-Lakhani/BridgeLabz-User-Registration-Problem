@@ -10,4 +10,9 @@ public class UserRegistration {
         return firstName!=null &&
                 firstName.matches("[A-Z][a-z]{2,}");
     }
+
+    boolean validateLastName(String lastName){
+        return lastName!=null &&
+                lastName.matches("[A-Z][a-z]{2,}");
+    }
 }

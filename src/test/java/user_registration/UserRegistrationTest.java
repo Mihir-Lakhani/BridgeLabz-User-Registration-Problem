@@ -58,5 +58,45 @@ public class UserRegistrationTest {
         assertFalse(ur.validateFirstName(""));
     }
 
+    @Test
+    void lastNameWithCapitalFirstLetterAndMin3LettersShouldReturnTrue(){
+        assertTrue(ur.validateLastName("Lakhani"));
+        assertTrue(ur.validateLastName("Shah"));
+        assertTrue(ur.validateLastName("Rao"));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "lakhani",
+            "shah",
+            "rao",
+    })
+    void lastNameWithLowercaseFirstLetterShouldReturnFalse(String lastName){
+        assertFalse(ur.validateLastName(lastName));
+    }
+
+    @Test
+    void nullLastNameShouldReturnFalse(){
+        assertFalse(ur.validateLastName(null));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "Lakhani, true",
+            "Rao, true",
+            "Ra, false",
+            "R, false",
+            "Lakhani1, false",
+            "La-khani, false",
+    })
+    void lastNameValidationShouldMatchExpectedResult(String lastName, boolean expected){
+        assertEquals(expected, ur.validateLastName(lastName));
+    }
+
+    @Test
+    void emptyLastNameShouldReturnFalse(){
+        assertFalse(ur.validateLastName(""));
+    }
+
 
 }
