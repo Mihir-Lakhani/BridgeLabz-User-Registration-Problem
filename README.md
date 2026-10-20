@@ -5,8 +5,11 @@
 Week 4: Java Collections and Streams
 
 Day 6: JUnit Testing
+
 Hi Team,
+
 Complete the assigned use-case-based assignment and push your code to GitHub by following the repository structure and branching strategy outlined below.
+
 Project Setup and GitHub Instructions:
 - Create a Separate Project: Create a new Maven or Java project specifically for this assignment. This must be a separate project with its own GitHub repository.
 - Main Branch: Keep only the README.md file in the main branch. The README should contain an overview of your project, its objectives, and the use cases covered.
