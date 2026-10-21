@@ -1,4 +1,9 @@
 .idea/
+!.idea/
+!.idea/libraries/
+.idea/libraries/*
+!.idea/libraries/junit_platform_suite_api.xml
+!.idea/libraries/junit_platform_suite_engine.xml
 *.iml
 *.class
 
