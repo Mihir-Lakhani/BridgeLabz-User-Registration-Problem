@@ -32,8 +32,8 @@ public class UserRegistrationTest {
             "raj",
             "riya",
     })
+    void FirstLowerCaseLetterInFirstNameIsFalse(String firstName){
 
-    void FirstLetterInFirstNameIsFalse(String firstName){
         assertFalse(ur.validateFirstName(firstName));
     }
 
