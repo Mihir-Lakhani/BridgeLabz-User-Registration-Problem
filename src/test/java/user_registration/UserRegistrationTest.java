@@ -1,6 +1,8 @@
 package user_registration;
 
 import java.util.*;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -99,4 +101,28 @@ public class UserRegistrationTest {
     }
 
 
+    @ParameterizedTest
+    @CsvSource({
+            "true, 'abc@yahoo.com'",
+            "true, 'abc-100@yahoo.com'",
+            "true, 'abc.100@yahoo.com'",
+            "true, 'abc111@abc.com'",
+            "true, 'abc-100@abc.net'",
+            "true, 'abc.100@abc.com.au'",
+            "true, 'abc@1.com'",
+            "true, 'abc@gmail.com.com'",
+            "false, 'abc'",
+            "false, 'abc@'",
+            "false, '@abc.com'",
+            "false, 'abc..def@yahoo.com'",
+            "false, 'abc@yahoo..com'"
+    })
+    void testDiffTypesOfEmails(boolean expected, String email){
+        assertEquals(expected, ur.validateEmail(email));
+    }
+
+    @AfterEach
+    void cleanup(){
+        ur = null;
+    }
 }
